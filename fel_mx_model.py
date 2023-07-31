@@ -1,6 +1,6 @@
 import numpy as np
 
-from constants import I_A, JJ, K_u, L_u, c, e, eta, hc, k_u, lambda_u, m_e
+from constants import I_A, JJ, K_u, c, e, lambda_u, m_e
 
 
 def resonantLambda(gamma_beam, K_u, lambda_u):
@@ -32,7 +32,8 @@ def gainLength1D(rho, lambda_u):
 
 
 def getLambdaMX(Lg1D, sizes, lambda_rad, emittance, lambda_u, sig_pz, mean_pz):
-    # Ming Xie perturbative fitting formula, effects of energy spread, emittance and diffraction
+    # Ming Xie perturbative fitting formula, effects of energy spread, emittance and
+    # diffraction
     eta_d = Lg1D / (2 * sizes**2) * lambda_rad / (2 * np.pi)  # OK
     eta_e = 4 * np.pi * Lg1D / lambda_rad * emittance / (sizes**2 / emittance)  # OK
     eta_g = (4 * np.pi / lambda_u) * (sig_pz / mean_pz) * Lg1D  # OK
